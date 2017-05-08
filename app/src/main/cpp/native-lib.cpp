@@ -37,6 +37,7 @@ Java_com_hsfl_mobilecpp1_MainActivity_appendWelcomeFromJNI(JNIEnv *env, jobject 
         jobject result = env->CallObjectMethod(instance, methodIdGet);
         jstring currentText = reinterpret_cast<jstring>(result);
         const char *currentTextChars = env->GetStringUTFChars(currentText, NULL);
+
         std::string *currentTextStr = new std::string(currentTextChars);
 
         // concatenate strings
@@ -45,9 +46,7 @@ Java_com_hsfl_mobilecpp1_MainActivity_appendWelcomeFromJNI(JNIEnv *env, jobject 
 
         // create java string from C++ string
         jstring newJavaStr = env->NewStringUTF(newCppString.c_str());
-
         env->CallVoidMethod(instance, methodIdSet, newJavaStr);
-
         env->ReleaseStringUTFChars(currentText, currentTextChars);
     }
     else{
@@ -56,11 +55,3 @@ Java_com_hsfl_mobilecpp1_MainActivity_appendWelcomeFromJNI(JNIEnv *env, jobject 
 }
 
 
-extern "C"
-JNIEXPORT jstring JNICALL
-Java_com_hsfl_mobilecpp1_MainActivity_stringFromJNI(
-        JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
-}

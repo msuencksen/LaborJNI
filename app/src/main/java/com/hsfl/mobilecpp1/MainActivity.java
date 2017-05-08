@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("Welcome from Java");
 
         // call JNI
-        appendWelcomeFromJNI(); // use either this
-        // welcomeFromJNI(); // or this line, not both
+        // appendWelcomeFromJNI(); // use either this
+        welcomeFromJNI(); // or this line, not both
     }
 
     // platform-independent get method
