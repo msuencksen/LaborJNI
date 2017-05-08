@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // store handle to our TextView
         tv = (TextView) findViewById(R.id.sample_text);
 
-        tv.setText("Welcome from Java");
+        tv.setText("Pure Java!");
 
         // call JNI
         // appendWelcomeFromJNI(); // use either this
